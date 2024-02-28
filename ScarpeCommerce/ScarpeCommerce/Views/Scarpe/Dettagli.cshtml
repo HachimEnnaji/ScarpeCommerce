@@ -1,0 +1,83 @@
+﻿@model ScarpeCommerce.Models.Scarpe
+
+@{
+    ViewBag.Title = "Dettagli";
+}
+
+<style>
+    .xl {
+        display: flex;
+        align-items: center;
+    }
+
+    .image-container {
+        flex: 1;
+        margin-right: 20px;
+    }
+
+    .info-container {
+        flex: 1;
+    }
+
+    .additional-images {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+
+    .additional-image {
+        flex: 1;
+        margin-right: 10px;
+    }
+</style>
+
+<h2>Dettagli</h2>
+
+<div class="container xl">
+    <div class="image-container">
+        <img src="@Model.ImmagineCopertina" alt="Immagine Copertina" style="width: 500px;" />
+    </div>
+    <div class="info-container">
+        <h4>Scarpe</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Nome)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Nome)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Descrizione)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Descrizione)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Prezzo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Prezzo)
+            </dd>
+        </dl>
+    </div>
+</div>
+
+<div class="additional-images">
+    <div class="additional-image">
+        <img src="@Model.ImmagineAggiuntiva1" alt="Immagine Aggiuntiva 1" style="width: 300px;" />
+    </div>
+    <div class="additional-image">
+        <img src="@Model.ImmagineAggiuntiva2" alt="Immagine Aggiuntiva 2" style="width: 300px;" />
+    </div>
+</div>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
